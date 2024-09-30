@@ -2,15 +2,17 @@
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+$queue = require __DIR__ . '/queue.php';
+$redis = require __DIR__ . '/redis.php';
 
 $config = [
     'id' => 'basic-console',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'queue'],
     'controllerNamespace' => 'app\commands',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
         '@tests' => '@app/tests',
     ],
     'components' => [
@@ -26,6 +28,8 @@ $config = [
             ],
         ],
         'db' => $db,
+        'queue' => $queue,
+        'redis' => $redis,
     ],
     'params' => $params,
     /*

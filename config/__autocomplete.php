@@ -15,7 +15,7 @@ class Yii {
     /**
      * @var \yii\web\Application|\yii\console\Application|__Application
      */
-    public static $app;
+    public static \yii\web\Application|\yii\console\Application|__Application $app;
 }
 
 /**
@@ -24,6 +24,7 @@ class Yii {
  * 
  */
 class __Application {
+    public \yii\queue\Queue $queue;
 }
 
 /**
